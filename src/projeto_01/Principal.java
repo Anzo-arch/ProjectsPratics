@@ -28,7 +28,6 @@ public class Principal {
                     String novaTarefa = sc.nextLine();
                     tarefaDia.adicionarTarefa(novaTarefa);
                     break;
-
                 case 2:
                     tarefaDia.exibirTarefas();
                     break;
