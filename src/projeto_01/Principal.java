@@ -28,6 +28,7 @@ public class Principal {
                     String novaTarefa = sc.nextLine();
                     tarefaDia.adicionarTarefa(novaTarefa);
                     break;
+
                 case 2:
                     tarefaDia.exibirTarefas();
                     break;
@@ -36,7 +37,7 @@ public class Principal {
                     System.out.print("Informe o número da tarefa para remover: ");
                     int indice = sc.nextInt();
                     sc.nextLine();
-                    tarefaDia.removerTarefa(indice - 1); // ajustando para índice baseado em 0
+                    tarefaDia.removerTarefa(indice - 1);
                     break;
 
                 case 4:
