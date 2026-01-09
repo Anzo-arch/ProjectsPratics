@@ -7,52 +7,44 @@ public class TarefaDiaria {
 
     private ArrayList<String> tarefas;
 
-    // Códigos ANSI
-    private static final String RESET = "\u001B[0m";
-    private static final String RED = "\u001B[31m";
-    private static final String GREEN = "\u001B[32m";
-    private static final String YELLOW = "\u001B[33m";
-    private static final String BLUE = "\u001B[34m";
-    private static final String CYAN = "\u001B[36m";
-    private static final String BOLD = "\u001B[1m";
-
     public TarefaDiaria() {
         tarefas = new ArrayList<>();
     }
 
     public void adicionarTarefa(String tarefa) {
         tarefas.add(tarefa);
-        System.out.println(GREEN + "✔ Tarefa adicionada com sucesso!" + RESET);
+        System.out.println("✅ Tarefa adicionada com sucesso!");
     }
 
     public void exibirTarefas() {
         if (tarefas.isEmpty()) {
-            System.out.println(YELLOW + "⚠ Nenhuma tarefa cadastrada." + RESET);
+            System.out.println("📭 Nenhuma tarefa cadastrada.");
             return;
         }
 
-        System.out.println(BOLD + BLUE + "\n📋 Lista de Tarefas:" + RESET);
+        System.out.println("📋 Lista de Tarefas:");
         for (int i = 0; i < tarefas.size(); i++) {
-            System.out.println(CYAN + (i + 1) + " - " + RESET + tarefas.get(i));
+            System.out.println((i + 1) + " - " + tarefas.get(i));
         }
     }
 
     public void removerTarefa(int indice) {
-        if (indice >= 0 && indice < tarefas.size()) {
-            String removida = tarefas.remove(indice);
-            System.out.println(RED + "🗑 Tarefa \"" + removida + "\" removida com sucesso!" + RESET);
-        } else {
-            System.out.println(RED + "✖ Índice inválido. Nenhuma tarefa removida." + RESET);
+        if (indice < 0 || indice >= tarefas.size()) {
+            System.out.println("❌ Número de tarefa inválido!");
+            return;
         }
+
+        tarefas.remove(indice);
+        System.out.println("🗑️ Tarefa removida com sucesso!");
     }
 
     public void ordenarTarefas() {
         if (tarefas.isEmpty()) {
-            System.out.println(YELLOW + "⚠ Nenhuma tarefa para ordenar." + RESET);
+            System.out.println("⚠️ Não há tarefas para ordenar.");
             return;
         }
 
         Collections.sort(tarefas);
-        System.out.println(GREEN + "🔤 Tarefas ordenadas em ordem alfabética." + RESET);
+        System.out.println("🔤 Tarefas ordenadas com sucesso!");
     }
 }
